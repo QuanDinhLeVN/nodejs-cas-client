@@ -1,2 +1,2 @@
 # nodejs-cas-client
-In node-cas-authentication, let replace url.parse with new URL() to avoid 401 Unauthorized Error.
+ To avoid 401 Unauthorized Error, let change cas_port to match your server.
