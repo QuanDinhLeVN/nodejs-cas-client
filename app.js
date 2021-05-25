@@ -52,6 +52,9 @@ app.use(function(req, res, next){
   if(req.session[ cas.session_name ]){
     res.locals.isAuthenticated = true;
     res.locals.username = req.session[ cas.session_name ];
+    res.locals.email = req.session[ cas.session_info ].email;
+    res.locals.lastname = req.session[ cas.session_info ].last_name;
+    res.locals.firstname = req.session[ cas.session_info ].first_name;
   }
   next();
 })
@@ -62,7 +65,7 @@ app.get('', (req,res)=>{
 
 
 app.get( '/secret', cas.bounce, function ( req, res ) { 
-  res.render('secret', )
+  res.render('secret')
 });
 
 app.get( '/app1', function ( req, res ) {
@@ -77,7 +80,7 @@ app.get( '/login', cas.bounce, (req, res)=>{
 
   res.redirect("/")
 });
-app.post( '/logout', cas.logout);
+app.get( '/logout', cas.logout);
 
 
 
